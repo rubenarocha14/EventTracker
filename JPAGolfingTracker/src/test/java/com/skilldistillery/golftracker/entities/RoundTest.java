@@ -14,49 +14,56 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class PlayerTest {
+class RoundTest {
 
-	private static EntityManagerFactory emf; // pool of db connections make static so it can be used thorughout the
-	// project
-// and not have to and doesn't have to be instantiated for each instance of the
-// class
+
+	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Player player;
+	private Round round;
+
 	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		emf = Persistence.createEntityManagerFactory("JPAGolfingTracker");
+		
 	}
 
 	@AfterAll
 	static void tearDownAfterClass() throws Exception {
 		emf.close();
+		
 	}
 
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		player = em.find(Player.class, 1);
+		round = em.find(Round.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		player = null;
+		round = null;
+		
 	}
-
+	
 	@Test
-	void test_Player_basic_mapping() {
-		assertNotNull(player);
-		assertEquals("Ruben", player.getFirstName());
-		
-		
+	void test_Equipment_Type_entity_mapping() {
+		assertNotNull(round);
+		assertEquals(90, round.getScore());
 	}
 	
 	@Test
 	void test_Round_MTO_Player() {
-		assertNotNull(player);
-		assertTrue(player != null && player.getRounds().size()>0);
+		assertNotNull(round);
+		assertEquals("Ruben", round.getPlayer().getFirstName());
+	}
+
+	@Test
+	void test_Round_MTO_Course() {
+		assertNotNull(round);
+		assertEquals("City Park", round.getCourse().getName());
 	}
 	
+
 }

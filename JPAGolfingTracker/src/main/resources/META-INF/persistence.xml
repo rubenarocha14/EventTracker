@@ -7,8 +7,8 @@
 <!-- ENTITIES -->
 
 <class>com.skilldistillery.golftracker.entities.Player</class>
-<!-- <class>com.skilldistillery.golftracker.entities.Course</class>
-<class>com.skilldistillery.golftracker.entities.Round</class> -->
+<class>com.skilldistillery.golftracker.entities.Course</class>
+<class>com.skilldistillery.golftracker.entities.Round</class> 
 
 
 <!-- END ENTITIES -->

@@ -50,14 +50,15 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `round` ;
 
 CREATE TABLE IF NOT EXISTS `round` (
+  `id` INT NOT NULL AUTO_INCREMENT,
   `player_id` INT NOT NULL,
   `course_id` INT NOT NULL,
   `holes_played` INT NOT NULL,
   `num_players` INT NULL,
   `score` INT NOT NULL,
-  PRIMARY KEY (`player_id`, `course_id`),
   INDEX `fk_player_has_course_course1_idx` (`course_id` ASC),
   INDEX `fk_player_has_course_player_idx` (`player_id` ASC),
+  PRIMARY KEY (`id`),
   CONSTRAINT `fk_player_has_course_player`
     FOREIGN KEY (`player_id`)
     REFERENCES `player` (`id`)
@@ -113,12 +114,12 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `golfingdb`;
-INSERT INTO `round` (`player_id`, `course_id`, `holes_played`, `num_players`, `score`) VALUES (1, 1, 18, 4, 90);
-INSERT INTO `round` (`player_id`, `course_id`, `holes_played`, `num_players`, `score`) VALUES (1, 2, 18, 4, 88);
-INSERT INTO `round` (`player_id`, `course_id`, `holes_played`, `num_players`, `score`) VALUES (2, 1, 18, 3, 91);
-INSERT INTO `round` (`player_id`, `course_id`, `holes_played`, `num_players`, `score`) VALUES (2, 2, 18, 4, 90);
-INSERT INTO `round` (`player_id`, `course_id`, `holes_played`, `num_players`, `score`) VALUES (3, 3, 18, 2, 88);
-INSERT INTO `round` (`player_id`, `course_id`, `holes_played`, `num_players`, `score`) VALUES (3, 4, 9, 4, 105);
+INSERT INTO `round` (`id`, `player_id`, `course_id`, `holes_played`, `num_players`, `score`) VALUES (DEFAULT, 1, 1, 18, 4, 90);
+INSERT INTO `round` (`id`, `player_id`, `course_id`, `holes_played`, `num_players`, `score`) VALUES (DEFAULT, 1, 2, 18, 4, 88);
+INSERT INTO `round` (`id`, `player_id`, `course_id`, `holes_played`, `num_players`, `score`) VALUES (DEFAULT, 2, 1, 18, 3, 91);
+INSERT INTO `round` (`id`, `player_id`, `course_id`, `holes_played`, `num_players`, `score`) VALUES (DEFAULT, 2, 2, 18, 4, 90);
+INSERT INTO `round` (`id`, `player_id`, `course_id`, `holes_played`, `num_players`, `score`) VALUES (DEFAULT, 3, 3, 18, 2, 88);
+INSERT INTO `round` (`id`, `player_id`, `course_id`, `holes_played`, `num_players`, `score`) VALUES (DEFAULT, 3, 4, 9, 4, 105);
 
 COMMIT;
 

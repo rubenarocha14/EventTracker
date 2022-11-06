@@ -1,5 +1,6 @@
 package com.skilldistillery.golftracker.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -7,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Player {
@@ -25,17 +29,27 @@ public class Player {
 	
 	private String state;
 	
+	@JsonIgnore
+	@OneToMany(mappedBy = "player")
+	private List<Round> rounds;
+	
 	public Player() {
 		super();
 	}
-	public Player(int id, String firstName, String lastName, String city, String state) {
+	
+	public Player(int id, String firstName, String lastName, String city, String state, List<Round> rounds) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.city = city;
 		this.state = state;
+		this.rounds = rounds;
 	}
+
+
+
+
 	public int getId() {
 		return id;
 	}
@@ -65,6 +79,14 @@ public class Player {
 	}
 	public void setState(String state) {
 		this.state = state;
+	}
+	
+	
+	public List<Round> getRounds() {
+		return rounds;
+	}
+	public void setRounds(List<Round> rounds) {
+		this.rounds = rounds;
 	}
 	@Override
 	public int hashCode() {

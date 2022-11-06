@@ -1,8 +1,6 @@
 package com.skilldistillery.golftracker.entities;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -14,49 +12,49 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class PlayerTest {
+class CourseTest {
 
-	private static EntityManagerFactory emf; // pool of db connections make static so it can be used thorughout the
-	// project
-// and not have to and doesn't have to be instantiated for each instance of the
-// class
+
+	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Player player;
+	private Course course;
+
 	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		emf = Persistence.createEntityManagerFactory("JPAGolfingTracker");
+		
 	}
 
 	@AfterAll
 	static void tearDownAfterClass() throws Exception {
 		emf.close();
+		
 	}
 
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		player = em.find(Player.class, 1);
+		course = em.find(Course.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		player = null;
+		course = null;
+		
+	}
+	
+	@Test
+	void test_Course_entity_mapping() {
+		assertNotNull(course);
+		assertEquals("City Park", course.getName());
+	}
+	
+	@Test
+	void test_Course_MTO_Round() {
+		assertNotNull(course);
+		assertTrue(course != null && course.getRounds().size()>0);
 	}
 
-	@Test
-	void test_Player_basic_mapping() {
-		assertNotNull(player);
-		assertEquals("Ruben", player.getFirstName());
-		
-		
-	}
-	
-	@Test
-	void test_Round_MTO_Player() {
-		assertNotNull(player);
-		assertTrue(player != null && player.getRounds().size()>0);
-	}
-	
 }
