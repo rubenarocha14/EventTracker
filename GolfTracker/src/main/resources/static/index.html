@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Golf Tracker</title>
+<script type="text/javascript" src="js/script.js">
+	
+</script>
+<!-- CSS only -->
+<!-- CSS only -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+	<div class="container-fluid">
+
+		<h1>Welcome to Golf Tracker!</h1>
+
+		<div id="errorsDiv"></div>
+
+		<div id="playerDetailsDiv"></div>
+		<div id="deletePlayerBtn"></div>
+		<div id="updatePlayerForm">
+			<form hidden id="createPlayerForm" name="createPlayerForm">
+				<label for="fname">First Name:</label><br> 
+				<input type="text" name="fname"><br> 
+				<label for="lname">Last Name:</label><br> 
+				<input type="text" name="lname"><br> 
+				<label for="city">City:</label><br> 
+				<input type="text" name="city"><br>
+				<label for="state">State:</label><br> 
+				<input type="text" name="state"><br>
+				<button name='addPlayerBtn'>Create New Player</button>
+			</form>
+		</div>
+		<button id = "toggleUpdateBtn"> UpdatePlayer</button>
+		<!--<div id = "playerRoundsDiv">  -->
+		<!-- 	<table class="table table-dark table-hover">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Holes Played</th>
+						<th>Number of Players</th>
+						<th>Course</th>
+						<th>Score</th>
+					</tr>
+				</thead>
+				<tbody id="playerRoundsTable"></tbody>
+			</table> -->
+
+
+		<!-- </div> -->
+
+		<div id="playerListDiv">
+			<table class="table table-dark table-hover">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>City</th>
+						<th>State</th>
+					</tr>
+				</thead>
+				<tbody id="playerTableBody"></tbody>
+			</table>
+		</div>
+		<div id="createPlayerButtonDiv">
+			<button class="btn btn-dark" id=createPlayerBtn>Create
+				Player</button>
+		</div>
+
+		<form id="createPlayerForm" name="createPlayerForm">
+			<label for="fname">First name:</label><br> <input type="text"
+				name="fname"><br> <label for="lname">Last name:</label><br>
+			<input type="text" name="lname"><br> <label for="city">City:</label><br>
+			<input type="text" name="city"><br> <label for="state">State:</label><br>
+			<input type="text" name="state"><br>
+			<button name='addPlayerBtn'>Create New Player</button>
+			<div id="updatePlayerBtn"></div>
+		</form>
+		<br>
+		<div id="courseListDiv">
+			<table class="table table-dark table-hover">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>City</th>
+						<th>State</th>
+					</tr>
+				</thead>
+				<tbody id="courseTableBody"></tbody>
+			</table>
+		</div>
+
+	</div>
+
+
+
+
+
+	<!-- JavaScript Bundle with Popper -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+		crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 # EventTracker
 
-#Description
+# Description pt 1
 This application is designed to track the rounds of golf played by a player, and
 at a course. The player, course and round all have CRUD functionality, however the
 round will default to adding player 1 and course 1 regardless of whether the a player
@@ -9,16 +9,26 @@ many rounds associated with it, however a round only has one player and one cour
 associated with it. The program is accessed through the endpoints provided in the
 `#End Points` section of this file.
 
-#Lessons Learned
+# Description pt 2
+I wasn't able to get my toggle update to work to display the update player form. I should have it fixed
+after lunch. All other CRUD functionality is working. The project was pretty straight
+forward, so there weren't too many hiccups as far as functionality goes. All actions remain
+on the index.html page, and I used toggles to be able to hide and display forms rather
+than sending to another page.
+
+
+
+# Lessons Learned pt 1
 This application was fairly simple, however I was able to cement the difference between
 the service layer and DAO layer after doing more research on the difference. By the third
 Controller, I was able to quickly resolve my errors and conceptually understand the stack
 trace regarding missing annotations or mapping errors.
 
-#Technology
-STS, Postman, Udemy, Git, GitHub
 
-#End Points
+# Technology
+STS, Postman, Udemy, Git, GitHub, JS, CSS
+
+# End Points
 
 |  CRUD Op.    | HTTP Verb  |       URI                |  RequestBody          |        ResponseBody     |
 |---------------|------------|--------------------------|-----------------------|------------------------|

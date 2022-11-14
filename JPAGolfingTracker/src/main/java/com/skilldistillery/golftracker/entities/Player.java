@@ -29,7 +29,7 @@ public class Player {
 	
 	private String state;
 	
-	@JsonIgnore
+	//@JsonIgnore
 	@OneToMany(mappedBy = "player")
 	private List<Round> rounds;
 	
