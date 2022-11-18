@@ -10,7 +10,7 @@ function init() {
 	loadCourseList();
 	let newPlayer = document.getElementById("createPlayerForm");
 	newPlayer.addPlayerBtn.addEventListener('click', function(evt){
-		evt.preventDefault();
+		//evt.preventDefault();
 		//console.log('clicked');
 		let player = {
 			firstName : newPlayer.fname.value,
@@ -77,7 +77,7 @@ function displayPlayer(player) {
 	console.log(player);
 	getPlayerDiv.appendChild(h2);
 	getPlayerDiv.appendChild(deleteBtn);
-	getPlayerDiv.appendChild(updatePlayerForm);
+//	getPlayerDiv.appendChild(updatePlayerForm);
 	h2.addEventListener('mouseover', function handleMouseOver() {
 		h2.style.color = 'white';
 		h2.style.backgroundColor = "#90A4AE"
@@ -204,6 +204,10 @@ function createPlayer(player) {
 	};
 	let playerJson = JSON.stringify(player);
 	xhr.send(playerJson);
+}
+
+function updatePlayer(playerId){
+
 }
 
 
