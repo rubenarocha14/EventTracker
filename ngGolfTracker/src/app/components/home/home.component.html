@@ -1,1 +1,63 @@
-<p>home works!</p>
+<h1 *ngIf="!selected" style = "color:black">Welcome to the Pebble Beach Player Tracker!</h1>
+
+<br>
+<h5 *ngIf="!selected" style = "color:black">Select a previous player to view.</h5>
+<table  class="table table-dark">
+  <thead class="table-dark">
+    <tr>
+      <th> </th>
+      <th column-span: all>Select a previous player to view.</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr>
+      <th>Player Name</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let player of players">
+      <td id ="playerName" (click)="displayPlayer(player)">{{ player.firstName }}  {{ player.lastName}}</td>
+      <td>{{ player.city }}</td>
+      <td>{{ player.state }}</td>
+      <td>
+        <button (click)="deletePlayer(player.id)" class="btn btn-danger">-</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+
+<form *ngIf="addView" >
+  <input type="text" style="background-color: black" name="firstName" [(ngModel)]="newPlayer.firstName" class="form-control" placeholder="First Name"/>
+  <input type="text" style="background-color:black" name="lastName" [(ngModel)]="newPlayer.lastName" class="form-control" placeholder="Last Name"/>
+  <input type="text" style="background-color:black" name="city" [(ngModel)]="newPlayer.city" class="form-control" placeholder="City"/>
+  <input type="text" style="background-color:black" name="state" [(ngModel)]="newPlayer.state" class="form-control" placeholder="State"/>
+  <button (click)="addPlayer(newPlayer)" class="btn btn-dark">Add New Player</button>
+</form>
+
+
+<div *ngIf="selected && detailView">
+  <h3 style = "color: black">Player Detail</h3>
+  <h5 style = "color: black">{{ selected.firstName }} {{selected.lastName}} lives in {{ selected.city }}, {{ selected.state }}<br></h5>
+  <button (click)="displayTable()" class="btn btn-dark">Exit Player</button><br>
+  <button (click)="setEditPlayer(); editPlayerForm();" class="btn btn-dark">Edit Player</button>
+</div>
+
+
+<div *ngIf="editView && editPlayer">
+  <input
+    type="text"
+    name="city"
+    [(ngModel)]="editPlayer.city"
+  />City<br />
+  <input
+    type="text"
+    name="state"
+    [(ngModel)]="editPlayer.state"
+  />State<br />
+  <button (click)="updatePlayer(editPlayer)" class="btn btn-dark">Save Changes</button><br>
+  <button (click)="displayTable()" class="btn btn-dark">DiscardChanges</button>
+</div>

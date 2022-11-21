@@ -1,1 +1,6 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+
+body {
+  background-image: url('https://thumbs.dreamstime.com/b/pebble-beach-golf-course-monterey-california-usa-177907519.jpg');
+  color: #FFFFFF;
+}
