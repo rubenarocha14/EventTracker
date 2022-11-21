@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit {
         this.newPlayer = new Player();
       },
       error: (fail) => {
-        console.error('home.addExercise: could not create');
+        console.error('home.addPlayer: could not create');
         console.error(fail);
       },
     });
@@ -65,7 +65,7 @@ export class HomeComponent implements OnInit {
         this.loadPlayers();
       },
       error: (err) => {
-        console.error('home.deleteExercise: could not delete');
+        console.error('home.deletePlayer: could not delete');
         console.error(err);
       },
     });
