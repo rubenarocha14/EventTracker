@@ -32,7 +32,8 @@ Controller, I was able to quickly resolve my errors and conceptually understand 
 trace regarding missing annotations or mapping errors.
 
 # Lessons Learned pt. 3
-Not necessarily a lesson, but a current struggle and hopefully soon solution. I have a logo image displayed in the header, however I couldn't figure out how to add an onclick event to get it to display the initial index page. I'd like to figure that out to make the site more functionally sound.
+Not necessarily a lesson, but a current struggle and hopefully soon solution. I have a logo image displayed in the header, however I couldn't figure out how to add an onclick event to get it to display the initial index page. I'd like to figure that out to make the site more functionally sound. Currently, to exit out of the
+player detail and show the create player form again, you have to refresh the site. Otherwise you end up stuck on the page with only update and delete functionality. 
 
 # Technology
 STS, Postman, Udemy, Git, GitHub, JS, CSS, Angular
